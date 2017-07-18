@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Nooooote</title>
+
+    <div th:replace="fragments/header :: header-css"/>
+
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"/>
+
+<div class="container">
+
+    <h1>Welcome!</h1>
+    <br />
+    <h3>-----------------------</h3>
+    <br />
+    <img src="../../static/images/joke-99-bugs.jpg" th:src="@{http://media02.hongkiat.com/programming-jokes/joke-99-bugs.jpg}" alt="Asds"/>
+
+</div>
+<!-- /.container -->
+
+<div th:replace="fragments/footer/footer :: footer"/>
+
+</body>
+</html>

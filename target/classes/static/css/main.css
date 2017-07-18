@@ -1,0 +1,31 @@
+h1{
+	color:#0000FF;
+}
+
+footer{
+    margin-top:60px;
+}
+
+.navbar-nav-left{
+	align-self: right;
+}
+
+.makeMeWhitePls{
+    color: white;
+}
+
+.not-active {
+	pointer-events: none;
+	cursor: default;
+}
+
+#footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
+.note-form{
+	width: 80%;
+	align-content: center;
+}

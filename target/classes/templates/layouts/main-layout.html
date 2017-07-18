@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+>
+<head>
+    <base th:href="@{/}"/>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link th:href="@{/images/favicon.png}" rel="icon" type="image/png"/>
+
+    <link rel="stylesheet" type="text/css"
+          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" th:href="@{/css/w3/w3.css}"
+          href="../../css/w3/w3.css" />
+
+    <link rel="stylesheet" th:href="@{/css/main.css}"
+          href="../../css/main.css" />
+
+    <title>Notes</title>
+</head>
+
+<body layout:fragment="body">
+<div class="container" style="border:1px solid lightgray;" layout:fragment="body-content">
+
+    <th:block th:include="fragments/menu/menu"/>
+
+    <th:block layout:fragment="content"/>
+
+
+    <th:block th:replace="fragments/footer/footer :: footer"/>
+
+</div>
+
+<script th:src="@{/js/openskimr.js}"></script>
+<th:block layout:fragment="body-scripts">
+</th:block>
+</body>
+</html>

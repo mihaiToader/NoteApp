@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"/>
+
+<div class="container">
+
+    <div class="row" style="margin-top:20px;  justify-content: center;">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+            <form th:action="@{/registerSubmit}" th:object="${tUser}" method="post" >
+                <fieldset>
+                    <h1>Please Register</h1>
+
+                    <div th:if="${error}">
+                        <div class="alert alert-danger">
+                            Password don't match!
+                        </div>
+                    </div>
+                    <div th:if="${error2}">
+                        <div class="alert alert-danger">
+                            User already exists!
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" name="name" id="name" class="form-control input-lg"
+                               placeholder="UserName" required="true" autofocus="true"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" id="password" class="form-control input-lg"
+                               placeholder="Password" required="true"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="repeatPassword" id="repeatPassword" class="form-control input-lg"
+                               placeholder="Repeat password" required="true"/>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <input type="submit" class="btn btn-lg btn-primary btn-block" value="Register"/>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<div th:replace="fragments/footer/footer :: footer"/>
+
+</body>
+</html>

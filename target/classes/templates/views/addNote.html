@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"/>
+
+<br /><br />
+<div class="container" style="width: 80%">
+    <div th:if="${noteCreated}" class="alert alert-success" role="alert">
+        <strong>Well done!</strong> You successfully add a note.
+    </div>
+    <div class="card">
+        <h3 class="card-header">Add note</h3>
+        <div class="card-block">
+            <form th:action="@{/user/addNoteSubmit}" method="post" th:object="${tNote}">
+                <div class="form-group">
+                    <label for="inputName">Name</label>
+                    <input type="text" class="form-control" id="inputName" aria-describedby="nameHelp" placeholder="Enter name" name="name" />
+                    <small id="nameHelp" class="form-text text-muted">Your note name, because your note has to have a name :)</small>
+                </div>
+                <div class="form-group">
+                    <label for="inputDescription">Description</label>
+                    <textarea class="form-control" id="inputDescription" aria-describedby="inputDescriptionHelp" placeholder="Enter description" style="resize: none" name="description"></textarea>
+                    <small id="inputDescriptionHelp" class="form-text text-muted">Your note description, because your note has to have a description also</small>
+                </div>
+                <div class="form-group">
+                    <label for="datepicker">Time limit</label>
+                    <input type="text" class="form-control" aria-describedby="datepickerHelp" id="datepicker" name="timeLimit"  />
+                    <small id="datepickerHelp" class="form-text text-muted">Your note time limit, because reasons</small>
+                </div>
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+<!-- /.container -->
+<div th:replace="fragments/footer/footer :: footer"/>
+
+</body>
+</html>

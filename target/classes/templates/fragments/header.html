@@ -1,0 +1,47 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:fragment="header-css">
+        <title>Nooooote</title>
+        <!-- this is header-css -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" th:href="@{/css/w3/w3.css}"
+              href="../../css/w3/w3.css" />
+
+        <link rel="stylesheet" th:href="@{/css/main.css}"
+              href="../../css/main.css" />
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
+
+    </div>
+</head>
+<body>
+<div th:fragment="header">
+    <!-- this is header -->
+    <div class="w3-bar w3-green">
+        <a href="#" th:href="@{/home}" class="w3-bar-item w3-button w3-mobile">Home</a>
+        <th:block th:if="${user}">
+            <a href="#" th:href="@{/user}" class="w3-bar-item w3-button w3-mobile">My notes</a>
+            <a href="#" th:href="@{/user/addNote}" class="w3-bar-item w3-button w3-mobile">Add note</a>
+            <th:block th:if="${user.isAdmin}">
+                <a href="#" th:href="@{/admin/seeAllNotes}" class="w3-bar-item w3-button w3-mobile">See all notes</a>
+            </th:block>
+        </th:block>
+        <th:block th:if="${user}">
+            <a href="#" th:href="@{/logout}" class="w3-bar-item w3-button w3-mobile" style="float: right;">Log out</a>
+            <a href="#" class="w3-bar-item w3-button w3-mobile not-active" style="float: right;" th:text="'User connected: ' + ${user}"></a>
+        </th:block>
+        <th:block th:unless="${user}">
+            <a href="#" th:href="@{/login}" class="w3-bar-item w3-button w3-mobile" style="float: right;">Log in</a>
+            <a href="#" th:href="@{/register}" class="w3-bar-item w3-button w3-mobile" style="float: right;">Register</a>
+        </th:block>
+    </div>
+</div>
+
+</body>
+</html>

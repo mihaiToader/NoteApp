@@ -12,26 +12,34 @@
         <div class="card">
             <h3 class="card-header" th:text="'User: ' + ${user}"></h3>
             <div class="card-block">
-                <div th:each="note : ${notes.get(user)}">
-                    <div class="w3-card-4" style="width: 100%">
+                <div class="row">
 
-                        <header class="w3-container w3-light-grey">
-                            <h3 th:text="${note.name}">Name</h3>
-                        </header>
+                    <div th:each="note : ${notes.get(user)}" class="col-md-6">
+                        <div class="w3-card-4" style="width: 100%">
 
-                        <div class="w3-container">
-                            <p th:text="'Time limit: ' + ${#calendars.format(note.timeLimit, 'MM/dd/yyyy')}">Time limit</p>
-                            <hr />
-                            <div th:text="${note.description}" style="overflow: scroll; height: 150px">Description</div>
+                            <header class="w3-container w3-light-grey">
+                                <h3 th:text="${note.name}">Name</h3>
+                            </header>
+
+                            <div class="w3-container">
+                                <p th:text="'Time limit: ' + ${#calendars.format(note.timeLimit, 'MM/dd/yyyy')}">Time
+                                    limit</p>
+                                <hr/>
+                                <div th:text="${note.description}" style="overflow: scroll; height: 150px">Description
+                                </div>
+                            </div>
+
+                            <button class="w3-button w3-block w3-dark-grey doneBtn"
+                                    th:attr="id='doneBtn_' + ${note.id}">Delete user note
+                            </button>
                         </div>
-
-                        <button class="w3-button w3-block w3-dark-grey doneBtn" th:attr="id='doneBtn_' + ${note.id}">Delete user note</button>
+                        <br />
                     </div>
-                    <br />
+
                 </div>
             </div>
         </div>
-        <br />
+        <br/>
     </div>
 </div>
 <!-- /.container -->

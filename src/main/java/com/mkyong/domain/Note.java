@@ -16,8 +16,8 @@ public class Note {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="OWNER_ID")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "OWNER_ID")
     private User owner;
 
     @NotNull

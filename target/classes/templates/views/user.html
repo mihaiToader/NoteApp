@@ -8,27 +8,31 @@
 <div th:replace="fragments/header :: header"/>
 
 <div class="container">
-    <div th:each="note : ${notes}">
-        <div class="w3-card-4">
+    <br />
+    <div class="row">
+        <div th:each="note : ${notes}" class="col-md-3">
+            <div class="w3-card-4">
 
-            <header class="w3-container w3-light-grey">
-                <h3 th:text="${note.name}">Name</h3>
-            </header>
+                <header class="w3-container w3-light-grey">
+                    <h3 th:text="${note.name}">Name</h3>
+                </header>
 
-            <div class="w3-container">
-                <p th:text="'Time limit: ' + ${#calendars.format(note.timeLimit, 'MM/dd/yyyy')}">Time limit</p>
-                <hr />
-                <div th:text="${note.description}" style="overflow: scroll; height: 150px">Description</div>
+                <div class="w3-container">
+                    <p th:text="'Time limit: ' + ${#calendars.format(note.timeLimit, 'MM/dd/yyyy')}">Time limit</p>
+                    <hr/>
+                    <div th:text="${note.description}" style="overflow: scroll; height: 150px">Description</div>
+                </div>
+
+                <button class="w3-button w3-block w3-dark-grey doneBtn" th:attr="id='doneBtn_' + ${note.id}">Done
+                </button>
             </div>
-
-            <button class="w3-button w3-block w3-dark-grey doneBtn" th:attr="id='doneBtn_' + ${note.id}">Done</button>
+            <br/>
         </div>
-        <br />
     </div>
 </div>
 <form th:action="@{/user/doneNote}" style="display: none">
     <input type="hidden" name="idNote" id="doneNoteId"/>
-    <input type="submit" id="submitFormIdNote" />
+    <input type="submit" id="submitFormIdNote"/>
 </form>
 <!-- /.container -->
 <div th:replace="fragments/footer/footer :: footer"/>
